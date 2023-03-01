@@ -1,0 +1,15 @@
+name: Canary
+
+on:
+  schedule:
+    - cron: '42 0 * * *'
+
+jobs:
+  dispatch-canary:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Create commit
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: script/create-canary-commit

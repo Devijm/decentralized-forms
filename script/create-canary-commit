@@ -1,0 +1,14 @@
+#!/bin/sh
+
+set -e
+
+TIMESTAMP=`date +%Y-%m-%d-%H-%M-%S`
+
+curl -X PUT -i https://api.github.com/repos/Workshop64/decentralized-forums/contents/coalmine/${TIMESTAMP}.md \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token ${GITHUB_TOKEN}" \
+  -d "{
+        \"message\": \"🐤 ${TIMESTAMP}\",
+        \"content\": \"8J+QpAo=\n\",
+        \"branch\": \"main\"
+      }"
